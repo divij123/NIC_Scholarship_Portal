@@ -1,0 +1,85 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+    
+        <action name="login" class="login.login" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+            <result name="error">/public/error.jsp</result>
+            <result name="incorrect">/public/accesserror.jsp</result>
+        </action>
+  
+        <action name="register" class="register.registerUser" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+        
+        <action name="districtregister" class="register.districtRegister" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+        
+        
+        <action name="viewrecords" class="fetchRecords.viewuserlog" method="execute">  
+            <result name="success">/app/viewrecords.jsp</result>  
+            <result name="error">/app/dashboard.jsp</result>
+        </action>
+        
+        <action name="signout" class="login.login" method="logout">
+           <result name="success">/public/index.jsp</result>
+           <result name="error">/public/error.jsp</result>
+        </action>
+        
+        <action name="showIP" class="login.showip" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+        
+        <action name="changepassword" class="changePassword.change" method="execute">
+            <result name="success">/public/index.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+
+        <action name="createuser" class="dashboard.redirect" method="execute">
+            <result name="success">/app/admin/createuser.jsp</result>
+        </action>
+        
+        <action name="approveuser" class="user.approveuser" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+        </action>
+        
+        <action name="passwordRedirect" class="changePassword.redirect" method="execute">
+            <result name="success">/app/changepassword.jsp</result>
+        </action>
+        
+         <action name="approveUser" class="fetchRecords.approveuser" method="execute">
+            <result name="success">/app/admin/approveUser.jsp</result>
+            <result name="error">/public/error.jsp</result>
+        </action>
+        
+        <action name="dashboardRedirect" class="dashboard.redirect" method="execute">
+            <result name="success">/app/dashboard.jsp</result>
+        </action>
+        
+        <action name="grantAccess" class="access.grant" method="execute">
+            <result name="success">/app/grantaccess.jsp</result>
+            <result name="error">/public/error.jsp</result>            
+        </action>
+        
+         <action name="grantuser" class="access.changepermission" method="execute">
+            <result name="success">/app/grantaccess.jsp</result>
+            <result name="error">/public/error.jsp</result>            
+        </action>
+        
+         <action name="checkpass" class="changePassword.check_password" method="check">
+            <result name="success">/app/changepassword.jsp</result>                        
+        </action>
+        
+        
+    </package>
+  
+</struts>
